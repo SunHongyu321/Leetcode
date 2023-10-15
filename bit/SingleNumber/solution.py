@@ -1,4 +1,16 @@
-def singleNumber(nums):
+sum = 0
+sum_ = 0
+res = 0
+
+def singleNumber1(nums):
+    for i in range(32):
+        sum_ = 0
+        for j in range(len(nums)):
+            sum_ += (nums[j] >> i) & 1
+        res |= (sum_ % 3) << i
+
+
+def singleNumber2(nums):
     result = 0
     for i in range(32): # 32 bits
         sum = 0
@@ -13,5 +25,7 @@ def singleNumber(nums):
         return result - (1 << 32)
     return result
 
-nums = [2,2,3,2]
-print(singleNumber(nums))
+# nums = [2,2,3,2]
+# print(singleNumber1(nums))
+# print(singleNumber2(nums))
+
